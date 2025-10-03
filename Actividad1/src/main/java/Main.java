@@ -16,11 +16,11 @@ public class Main {
                     4. Calcular nota media general
                     5. Mostrar mejor estudiante
                     6. Salir""");
-            System.out.print("Seleccione opción");
+            System.out.print("Seleccione opción: ");
             opcion = sc.nextInt();
 
             if (opcion == 1) {
-                
+
             } else if (opcion == 2) {
 
             } else if (opcion == 3) {
@@ -31,11 +31,12 @@ public class Main {
 
             } else if (opcion == 6) {
                 salir = true;
-            }
-            else {
+            } else {
                 System.out.println("Opción no válida. Inténtalo de nuevo");
             }
 
         } while (!salir);
+
+        System.out.println("Saliendo del programa...");
     }
 }
