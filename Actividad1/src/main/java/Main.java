@@ -52,18 +52,27 @@ public class Main {
                     for (int i = 0; i < estudiantes.size(); i++) {
                         if (estudiantes.get(i).getNombre().matches(nombre)) {
                             encontrado = true;
-                            System.out.println("Aquí están los datos del estudiante:");
+                            System.out.println("\nAquí están los datos del estudiante:");
                             System.out.println(estudiantes.get(i).toString());
                         } else encontrado = false;
                     }
+                    if (estudiantes.isEmpty()) {
+                        encontrado = false;
+                    }
                     if (!encontrado) {
-                        System.out.println("No se ha encontrado ningún estudiante con ese nombre.");
+                        System.out.println("\nNo se ha encontrado ningún estudiante con ese nombre.");
                     }
                     System.out.println();
                     break;
                 }
                 case 4 -> {
-
+                    double media = 0;
+                    for (int i = 0; i < estudiantes.size(); i++) {
+                        media += estudiantes.get(i).getNota();
+                    }
+                    media /= estudiantes.size();
+                    System.out.println("\nAquí está la media de las notas de todos los estudiantes: " + media);
+                    System.out.println();
                     break;
                 }
                 case 5 -> {
