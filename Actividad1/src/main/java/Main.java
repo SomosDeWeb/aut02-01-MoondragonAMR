@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -6,6 +7,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
         boolean salir = false;
+        ArrayList<String> estudiantes = new ArrayList<>();
 
         do {
             System.out.println("""
@@ -19,20 +21,29 @@ public class Main {
             System.out.print("Seleccione opción: ");
             opcion = sc.nextInt();
 
-            if (opcion == 1) {
+            switch (opcion) {
+                case 1 -> {
+                    
+                    break;
+                }
+                case 2 -> {
 
-            } else if (opcion == 2) {
+                    break;
+                }
+                case 3 -> {
 
-            } else if (opcion == 3) {
+                    break;
+                }
+                case 4 -> {
 
-            } else if (opcion == 4) {
+                    break;
+                }
+                case 5 -> {
 
-            } else if (opcion == 5) {
-
-            } else if (opcion == 6) {
-                salir = true;
-            } else {
-                System.out.println("Opción no válida. Inténtalo de nuevo");
+                    break;
+                }
+                case 6 -> salir = true;
+                default -> System.out.println("Opción no válida. Inténtalo de nuevo");
             }
 
         } while (!salir);
