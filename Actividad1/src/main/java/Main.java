@@ -29,10 +29,53 @@ public class Main {
                     do {
                         nombre = sc.nextLine();
                     } while (nombre.matches(""));
+                    boolean correcto = true;
+                    do {
+                        boolean alfabetico = true;
+                        do {
+                            correcto = true;
+                            alfabetico = true;
+                            for (int i = 0; i < nombre.length(); i++) {
+                                if (!Character.isAlphabetic(nombre.charAt(i))) {
+                                    correcto = false;
+                                    alfabetico = false;
+                                }
+                            }
+                            if (!correcto) {
+                                System.out.println("El nombre solo puede contener letras. Inténtalo de nuevo.");
+                                System.out.print("Introduce nombre: ");
+                                nombre = sc.nextLine();
+                            }
+                        } while (!alfabetico);
+                        for (Estudiante estudiante : estudiantes) {
+                            if (nombre.matches(estudiante.getNombre())) {
+                                correcto = false;
+                            }
+                        }
+                        if (!correcto) {
+                            System.out.println("Ya existe un estudiante con ese nombre. Inténtalo de nuevo.");
+                            System.out.print("Introduce nombre: ");
+                            nombre = sc.nextLine();
+                        }
+                    } while (!correcto);
                     System.out.print("Introduce edad: ");
                     int edad = sc.nextInt();
+                    if (edad < 1) {
+                        do {
+                            System.out.println("La edad debe ser mayor que 0. Inténtalo de nuevo.");
+                            System.out.print("Introduce edad: ");
+                            edad = sc.nextInt();
+                        } while (edad < 1);
+                    }
                     System.out.print("Introduce nota media: ");
                     double nota = sc.nextDouble();
+                    if (nota < 0) {
+                        do {
+                            System.out.println("La nota media no puede ser negativa. Inténtalo de nuevo.");
+                            System.out.print("Introduce nota media: ");
+                            nota = sc.nextDouble();
+                        } while (nota < 0);
+                    }
                     System.out.print("¿Está matriculado? (true/false): ");
                     boolean matriculado = sc.nextBoolean();
                     System.out.println();
@@ -56,7 +99,7 @@ public class Main {
                     } while (nombre.matches(""));
                     boolean encontrado = true;
                     for (Estudiante estudiante : estudiantes) {
-                        if (estudiante.getNombre().matches(nombre)) {
+                        if (estudiante.getNombre().toLowerCase().contains(nombre.toLowerCase())) {
                             encontrado = true;
                             System.out.println("\nAquí están los datos del estudiante:");
                             System.out.println(estudiante.toString());
