@@ -25,7 +25,10 @@ public class Main {
             switch (opcion) {
                 case 1 -> {
                     System.out.print("Introduce nombre: ");
-                    String nombre = sc.next();
+                    String nombre = "";
+                    do {
+                        nombre = sc.nextLine();
+                    } while (nombre.matches(""));
                     System.out.print("Introduce edad: ");
                     int edad = sc.nextInt();
                     System.out.print("Introduce nota media: ");
@@ -47,7 +50,10 @@ public class Main {
                 }
                 case 3 -> {
                     System.out.print("Introduce nombre del estudiante a buscar: ");
-                    String nombre = sc.next();
+                    String nombre = "";
+                    do {
+                        nombre = sc.nextLine();
+                    } while (nombre.matches(""));
                     boolean encontrado = true;
                     for (int i = 0; i < estudiantes.size(); i++) {
                         if (estudiantes.get(i).getNombre().matches(nombre)) {
