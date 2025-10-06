@@ -42,8 +42,8 @@ public class Main {
                 }
                 case 2 -> {
                     System.out.println("Lista de estudiantes: ");
-                    for (int i = 0; i < estudiantes.size(); i++) {
-                        System.out.println(estudiantes.get(i).toString());
+                    for (Estudiante estudiante : estudiantes) {
+                        System.out.println(estudiante.toString());
                     }
                     System.out.println();
                     break;
@@ -55,11 +55,12 @@ public class Main {
                         nombre = sc.nextLine();
                     } while (nombre.matches(""));
                     boolean encontrado = true;
-                    for (int i = 0; i < estudiantes.size(); i++) {
-                        if (estudiantes.get(i).getNombre().matches(nombre)) {
+                    for (Estudiante estudiante : estudiantes) {
+                        if (estudiante.getNombre().matches(nombre)) {
                             encontrado = true;
                             System.out.println("\nAquí están los datos del estudiante:");
-                            System.out.println(estudiantes.get(i).toString());
+                            System.out.println(estudiante.toString());
+                            break;
                         } else encontrado = false;
                     }
                     if (estudiantes.isEmpty()) {
@@ -82,7 +83,16 @@ public class Main {
                     break;
                 }
                 case 5 -> {
-
+                    double nota = 0;
+                    int estudiante = 0;
+                    for (int i = 0; i < estudiantes.size(); i++) {
+                        if (estudiantes.get(i).getNota() > nota) {
+                            nota = estudiantes.get(i).getNota();
+                            estudiante = i;
+                        }
+                    }
+                    System.out.println("\nEste es el estudiante con la mejor nota:\n" + estudiantes.get(estudiante).toString());
+                    System.out.println();
                     break;
                 }
                 case 6 -> salir = true;
