@@ -7,7 +7,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
         boolean salir = false;
-        ArrayList<String> estudiantes = new ArrayList<>();
+        ArrayList<Estudiante> estudiantes = new ArrayList<>();
 
         do {
             System.out.println("""
@@ -20,14 +20,24 @@ public class Main {
                     6. Salir""");
             System.out.print("Seleccione opción: ");
             opcion = sc.nextInt();
+            System.out.println();
 
             switch (opcion) {
                 case 1 -> {
-                    
+                    System.out.print("Introduce nombre: ");
+                    String nombre = sc.nextLine();
+                    System.out.print("Introduce edad: ");
+                    int edad = sc.nextInt();
+                    System.out.print("Introduce nota media: ");
+                    double nota = sc.nextDouble();
+                    System.out.print("¿Está matriculado? (true/false): ");
+                    boolean matriculado = sc.nextBoolean();
+                    estudiantes.add(new Estudiante(nombre, edad, nota, matriculado));
+                    System.out.println("Estudiante añadido correctamente. \n");
                     break;
                 }
                 case 2 -> {
-
+                    
                     break;
                 }
                 case 3 -> {
