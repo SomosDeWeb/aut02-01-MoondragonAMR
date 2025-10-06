@@ -46,4 +46,9 @@ public class Estudiante {
     public void setMatriculado(boolean matriculado) {
         this.matriculado = matriculado;
     }
+
+    @Override
+    public String toString() {
+        return nombre + "(" + edad + " años) - Nota media: " + nota + " - Matriculado: " + matriculado;
+    }
 }

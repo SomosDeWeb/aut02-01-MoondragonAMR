@@ -37,11 +37,15 @@ public class Main {
                     break;
                 }
                 case 2 -> {
-                    
+                    System.out.println("Lista de estudiantes: ");
+                    for (int i = 0; i < estudiantes.size(); i++) {
+                        System.out.println(estudiantes.get(i).toString());
+                    }
+                    System.out.println();
                     break;
                 }
                 case 3 -> {
-
+                    
                     break;
                 }
                 case 4 -> {
