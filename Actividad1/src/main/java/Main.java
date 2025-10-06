@@ -25,13 +25,14 @@ public class Main {
             switch (opcion) {
                 case 1 -> {
                     System.out.print("Introduce nombre: ");
-                    String nombre = sc.nextLine();
+                    String nombre = sc.next();
                     System.out.print("Introduce edad: ");
                     int edad = sc.nextInt();
                     System.out.print("Introduce nota media: ");
                     double nota = sc.nextDouble();
                     System.out.print("¿Está matriculado? (true/false): ");
                     boolean matriculado = sc.nextBoolean();
+                    System.out.println();
                     estudiantes.add(new Estudiante(nombre, edad, nota, matriculado));
                     System.out.println("Estudiante añadido correctamente. \n");
                     break;
@@ -45,7 +46,20 @@ public class Main {
                     break;
                 }
                 case 3 -> {
-                    
+                    System.out.print("Introduce nombre del estudiante a buscar: ");
+                    String nombre = sc.next();
+                    boolean encontrado = true;
+                    for (int i = 0; i < estudiantes.size(); i++) {
+                        if (estudiantes.get(i).getNombre().matches(nombre)) {
+                            encontrado = true;
+                            System.out.println("Aquí están los datos del estudiante:");
+                            System.out.println(estudiantes.get(i).toString());
+                        } else encontrado = false;
+                    }
+                    if (!encontrado) {
+                        System.out.println("No se ha encontrado ningún estudiante con ese nombre.");
+                    }
+                    System.out.println();
                     break;
                 }
                 case 4 -> {

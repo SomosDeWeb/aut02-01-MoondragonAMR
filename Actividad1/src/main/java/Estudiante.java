@@ -49,6 +49,6 @@ public class Estudiante {
 
     @Override
     public String toString() {
-        return nombre + "(" + edad + " años) - Nota media: " + nota + " - Matriculado: " + matriculado;
+        return nombre + " (" + edad + " años) - Nota media: " + nota + " - Matriculado: " + matriculado;
     }
 }
